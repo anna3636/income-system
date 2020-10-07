@@ -1,0 +1,112 @@
+@CHARSET "UTF-8";
+
+body {
+    color: #804000;
+    font-family: "Hiragino Kaku Gothic Pro",Meiryo,"MS PGothic",Helvetica,Arial,sans-serif;
+}
+
+#header {
+    width: 100%;
+    height: 70px;
+    background-color: #467935;
+}
+
+#content {
+    width: 94%;
+    margin-top: 15px;
+    padding-left: 3%;
+}
+
+h1 {
+    display: inline;
+    font-size: 24px;
+    color: #eeeeee;
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #24738e;
+}
+
+table, tr, th, td {
+    border: 1px solid #cccccc;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+th {
+    width: 26%;
+    padding: 10px 2%;
+}
+
+td {
+    width: 66%;
+    padding: 10px 2%;
+}
+
+button {
+    font-size: 14px;
+    padding: 5px 10px;
+}
+
+#footer {
+    text-align: center;
+}
+
+#select_botton {
+    margin:20px 10px 20px 10px;
+    padding:0px 0px 0px 30px;
+    color:#fff;
+    line-height:4;
+    border-radius:3px;
+    background: #80c217;
+    font-size:50px;
+
+}
+/*#header_menu {
+    width: 57%;
+    padding-top: 17px;
+    padding-left: 3%;
+    display: inline-block;
+}*/
+/*#account {
+    color: #cccccc;
+    width: 36%;
+    padding-right: 3%;
+    text-align: right;
+    display: inline-block;
+}*/
+header {
+  width: 100%;
+  padding: 15px 0;
+  margin: 0 auto;
+  text-align: center;
+  background-color:#804000;
+}
+header .headline{
+  font-size: 32px;
+}
+.date_list{
+    width: 37%;
+}
+.income_list{
+    width: 37%;
+}

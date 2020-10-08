@@ -1,7 +1,6 @@
 package controllers.wages;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.servlet.RequestDispatcher;
@@ -14,18 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 import models.Wage;
 import models.Work;
 import utils.DBUtil;
-
 /**
- * Servlet implementation class WagesIndexServlet
+ * Servlet implementation class WagesEditServlet
  */
-@WebServlet("/wages/index")
-public class WagesIndexServlet extends HttpServlet {
+@WebServlet("/wages/edit")
+public class WagesEditServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WagesIndexServlet() {
+    public WagesEditServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,36 +33,19 @@ public class WagesIndexServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em=DBUtil.createEntityManager();
-        Work login_work = (Work)request.getSession().getAttribute("login_work");
-
-
-
-        List<Wage> wages=em.createNamedQuery("getMyAllWages",Wage.class)
-                .setParameter("work", login_work)
-                .getResultList();
-
-        long income_count =(long)em.createNamedQuery("sumMyAllIncome",Long.class)
-                .setParameter("work",login_work)
-                .getSingleResult();
-
-
+        Wage a=em.find(Wage.class, Integer.parseInt(request.getParameter("id")));
 
         em.close();
-        request.setAttribute("wages",wages);
-        request.setAttribute("income_count", income_count);
 
+        Work login_work=(Work)request.getSession().getAttribute("login_work");
+        if(a !=null && login_work.getId() == a.getWork().getId()){
+            request.setAttribute("wage",a);
+            request.setAttribute("_check", request.getSession().getId());
+            request.getSession().setAttribute("wage_id", a.getId());
+        }
 
-
-
-
-
-        RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/views/wages/index.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/wages/edit.jsp");
         rd.forward(request, response);
-
-
-
-
     }
-
 
 }

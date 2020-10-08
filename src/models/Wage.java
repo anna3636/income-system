@@ -26,6 +26,10 @@ import javax.persistence.Table;
     @NamedQuery(
             name="wageCount",
             query="SELECT COUNT(a) FROM Wage AS a"
+            ),
+   @NamedQuery(
+            name="sumMyAllIncome",
+            query ="SELECT SUM(a.income) FROM Wage AS a WHERE a.work = :work ORDER BY a.id DESC"
             )
 })
 

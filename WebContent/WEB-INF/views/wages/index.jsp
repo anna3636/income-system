@@ -6,6 +6,8 @@
 
  <h2>収入情報一覧</h2>
 
+ <div>(合計　${income_count}　円)</div>
+
  <table id="wage_list">
   <tbody>
    <tr>

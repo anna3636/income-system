@@ -9,7 +9,7 @@
    <c:if test="${sessionScope.login_work !=null}">
     <div><a href="<c:url value='/wages/index?id=${wage.work.id}' />">収入管理</a></div>
 
-    //ここは後で情報を追加していく
+
      <div><a href="<c:url value='/information/index' />">バイト収入情報</a></div>
     <div><a href="<c:url value='/goal/index' />">目標設定</a></div>
     </c:if>

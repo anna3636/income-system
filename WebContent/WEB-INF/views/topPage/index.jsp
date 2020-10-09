@@ -7,12 +7,17 @@
 
   <div id="select_button">
    <c:if test="${sessionScope.login_work !=null}">
-    <div><a href="<c:url value='/wages/index?id=${wage.work.id}' />">収入管理</a></div>
+    <div class="box1"><a href="<c:url value='/wages/index?id=${wage.work.id}' />">収入管理</a></div>
 
 
      <div><a href="<c:url value='/information/index' />">バイト収入情報</a></div>
     <div><a href="<c:url value='/goal/index' />">目標設定</a></div>
     </c:if>
+   </div>
+
+  <div id="all_income">
+   <h2>合計収入</h2>
+   <div>(${income_count}　円)</div>
    </div>
 
 

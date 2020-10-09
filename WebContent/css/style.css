@@ -82,19 +82,11 @@ button {
     font-size:50px;
 
 }
-/*#header_menu {
-    width: 57%;
-    padding-top: 17px;
-    padding-left: 3%;
-    display: inline-block;
-}*/
-/*#account {
-    color: #cccccc;
-    width: 36%;
-    padding-right: 3%;
-    text-align: right;
-    display: inline-block;
-}*/
+#all_income{
+    font-size:30px;
+    background:#ffddfa;
+}
+
 header {
   width: 100%;
   padding: 15px 0;
@@ -111,3 +103,8 @@ header .headline{
 .income_list{
     width: 37%;
 }
+/*.box1 {
+    margin: 10px 10px 10px 10px;
+    border: 3px double #ddd;
+    padding: 2px;
+}*/

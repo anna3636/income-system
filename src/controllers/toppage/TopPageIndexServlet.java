@@ -38,8 +38,13 @@ public class TopPageIndexServlet extends HttpServlet {
          long income_count=(long)em.createNamedQuery("sumMyAllIncome",Long.class)
                  .setParameter("work",login_work)
                  .getSingleResult();
+
+         Integer max_goal=em.createNamedQuery("getMaxGoal",Integer.class)
+                 .setParameter("work", login_work)
+                 .getSingleResult();
          em.close();
          request.setAttribute("income_count", income_count);
+         request.setAttribute("max_goal", max_goal);
 
 
         RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/views/topPage/index.jsp");

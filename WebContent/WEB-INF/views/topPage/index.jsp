@@ -11,13 +11,23 @@
 
 
      <div><a href="<c:url value='/information/index' />">バイト収入情報</a></div>
-    <div><a href="<c:url value='/goal/index' />">目標設定</a></div>
+    <div><a href="<c:url value='/goals/index?id=${goal.work.id }' />">目標設定</a></div>
     </c:if>
    </div>
 
   <div id="all_income">
    <h2>合計収入</h2>
    <div>(${income_count}　円)</div>
+   </div>
+
+   <div id="max_goal">
+    <h2>一番高い目標まで</h2>
+    <c:if test="${max_goal > income_count }" >
+      <div>${max_goal - income_count} 円</div>
+    </c:if>
+    <c:if test="${max_goal <= income_count}">
+      <div>目標達成おめでとう！！</div>
+    </c:if>
    </div>
 
 

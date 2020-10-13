@@ -84,7 +84,12 @@ button {
 }
 #all_income{
     font-size:30px;
-    background:#ffddfa;
+    background:#f7d346;
+}
+#max_goal{
+    font-size:30px;
+    background:#fab32e;
+
 }
 
 header {

@@ -4,6 +4,7 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<class>models.Work</class>
 		<class>models.Wage</class>
+		<class>models.Goal</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/work_income_system?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8"/>

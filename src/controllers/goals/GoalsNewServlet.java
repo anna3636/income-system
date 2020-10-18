@@ -29,13 +29,14 @@ public class GoalsNewServlet extends HttpServlet {
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
         request.setAttribute("_check", request.getSession().getId());
 
         request.setAttribute("goal", new Goal());
 
-        RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/views/goals/new.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/goals/new.jsp");
         rd.forward(request, response);
     }
 

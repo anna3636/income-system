@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.Work;
+
 /**
  * Servlet implementation class WorksNewServlet
  */
@@ -28,11 +29,12 @@ public class WorksNewServlet extends HttpServlet {
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         request.setAttribute("_check", request.getSession().getId());
         request.setAttribute("work", new Work());
 
-        RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/views/works/new.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/works/new.jsp");
         rd.forward(request, response);
     }
 

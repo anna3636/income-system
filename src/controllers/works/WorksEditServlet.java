@@ -31,16 +31,17 @@ public class WorksEditServlet extends HttpServlet {
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        EntityManager em=DBUtil.createEntityManager();
-        Work w=em.find(Work.class, Integer.parseInt(request.getParameter("id")));
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        EntityManager em = DBUtil.createEntityManager();
+        Work w = em.find(Work.class, Integer.parseInt(request.getParameter("id")));
         em.close();
 
-        request.setAttribute("work",w);
-        request.setAttribute("_check",request.getSession().getId());
+        request.setAttribute("work", w);
+        request.setAttribute("_check", request.getSession().getId());
         request.setAttribute("work_id", w.getId());
 
-        RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/views/works/edit.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/works/edit.jsp");
         rd.forward(request, response);
     }
 

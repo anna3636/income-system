@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import models.Wage;
 
-
 /**
  * Servlet implementation class WagesNewServlet
  */
@@ -30,11 +29,12 @@ public class WagesNewServlet extends HttpServlet {
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("_check",request.getSession().getId());
-        request.setAttribute("wage",new Wage());
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.setAttribute("_check", request.getSession().getId());
+        request.setAttribute("wage", new Wage());
 
-        RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/views/wages/new.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/wages/new.jsp");
         rd.forward(request, response);
     }
 

@@ -32,28 +32,28 @@ public class GoalsCreateServlet extends HttpServlet {
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String _check=(String)request.getParameter("_check");
-          if(_check !=null && _check.equals(request.getSession().getId())){
-                EntityManager em=DBUtil.createEntityManager();
-                Goal g=new Goal();
-                g.setWork((Work)request.getSession().getAttribute("login_work"));
-                g.setPurpose(request.getParameter("purpose"));
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String _check = (String) request.getParameter("_check");
+        if (_check != null && _check.equals(request.getSession().getId())) {
+            EntityManager em = DBUtil.createEntityManager();
+            Goal g = new Goal();
+            g.setWork((Work) request.getSession().getAttribute("login_work"));
+            g.setPurpose(request.getParameter("purpose"));
 
-                g.setTargetAmount(Integer.parseInt(request.getParameter("targetAmount")));
+            g.setTargetAmount(Integer.parseInt(request.getParameter("targetAmount")));
 
-                Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-                g.setCreated_at(currentTime);
-                g.setUpdated_at(currentTime);
+            Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+            g.setCreated_at(currentTime);
+            g.setUpdated_at(currentTime);
 
+            em.getTransaction().begin();
+            em.persist(g);
+            em.getTransaction().commit();
+            em.close();
 
-                em.getTransaction().begin();
-                em.persist(g);
-                em.getTransaction().commit();
-                em.close();
+            response.sendRedirect(request.getContextPath() + "/goals/index");
+        }
 
-                response.sendRedirect(request.getContextPath()+"/goals/index");
     }
-
-}
 }

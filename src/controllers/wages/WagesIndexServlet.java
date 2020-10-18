@@ -33,38 +33,31 @@ public class WagesIndexServlet extends HttpServlet {
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        EntityManager em=DBUtil.createEntityManager();
-        Work login_work = (Work)request.getSession().getAttribute("login_work");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        EntityManager em = DBUtil.createEntityManager();
+        Work login_work = (Work) request.getSession().getAttribute("login_work");
 
-
-
-        List<Wage> wages=em.createNamedQuery("getMyAllWages",Wage.class)
+        List<Wage> wages = em.createNamedQuery("getMyAllWages", Wage.class)
                 .setParameter("work", login_work)
                 .getResultList();
+        long income_count=0;
+        try{
 
-        long income_count =(long)em.createNamedQuery("sumMyAllIncome",Long.class)
-                .setParameter("work",login_work)
+         income_count = (long) em.createNamedQuery("sumMyAllIncome", Long.class)
+                .setParameter("work", login_work)
                 .getSingleResult();
-
-
+        }catch(NullPointerException e){
+            e.printStackTrace();
+        }
 
         em.close();
-        request.setAttribute("wages",wages);
+        request.setAttribute("wages", wages);
         request.setAttribute("income_count", income_count);
 
-
-
-
-
-
-        RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/views/wages/index.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/wages/index.jsp");
         rd.forward(request, response);
 
-
-
-
     }
-
 
 }

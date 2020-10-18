@@ -32,18 +32,19 @@ public class WagesCreateServlet extends HttpServlet {
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String _check=(String)request.getParameter("_check");
-        if(_check !=null && _check.equals(request.getSession().getId())){
-            EntityManager em=DBUtil.createEntityManager();
-            Wage a=new Wage();
-            a.setWork((Work)request.getSession().getAttribute("login_work"));
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String _check = (String) request.getParameter("_check");
+        if (_check != null && _check.equals(request.getSession().getId())) {
+            EntityManager em = DBUtil.createEntityManager();
+            Wage a = new Wage();
+            a.setWork((Work) request.getSession().getAttribute("login_work"));
 
-            Date work_date=new Date(System.currentTimeMillis());
-            String rd_str=request.getParameter("work_date");
+            Date work_date = new Date(System.currentTimeMillis());
+            String rd_str = request.getParameter("work_date");
 
-            if(rd_str !=null && !rd_str.equals("")){
-                work_date=Date.valueOf(request.getParameter("work_date"));
+            if (rd_str != null && !rd_str.equals("")) {
+                work_date = Date.valueOf(request.getParameter("work_date"));
             }
 
             a.setWork_date(work_date);
@@ -56,7 +57,7 @@ public class WagesCreateServlet extends HttpServlet {
             em.getTransaction().commit();
             em.close();
 
-            response.sendRedirect(request.getContextPath()+"/wages/index");
+            response.sendRedirect(request.getContextPath() + "/wages/index");
         }
     }
 

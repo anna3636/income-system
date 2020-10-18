@@ -31,14 +31,15 @@ public class WorksShowServlet extends HttpServlet {
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        EntityManager em=DBUtil.createEntityManager();
-        Work w=em.find(Work.class,Integer.parseInt(request.getParameter("id")));
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        EntityManager em = DBUtil.createEntityManager();
+        Work w = em.find(Work.class, Integer.parseInt(request.getParameter("id")));
         em.close();
 
         request.setAttribute("work", w);
 
-        RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/views/works/show.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/works/show.jsp");
         rd.forward(request, response);
     }
 

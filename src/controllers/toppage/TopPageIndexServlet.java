@@ -31,23 +31,36 @@ public class TopPageIndexServlet extends HttpServlet {
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-         EntityManager em=DBUtil.createEntityManager();
-         Work login_work=(Work)request.getSession().getAttribute("login_work");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        EntityManager em = DBUtil.createEntityManager();
+        /*System.out.println();
+        System.out.println("★ id="+ request.getSession().getAttribute("login_work"));
+        System.out.println();*/
 
-         long income_count=(long)em.createNamedQuery("sumMyAllIncome",Long.class)
-                 .setParameter("work",login_work)
-                 .getSingleResult();
+        Work login_work = (Work) request.getSession().getAttribute("login_work");
 
-         Integer max_goal=em.createNamedQuery("getMaxGoal",Integer.class)
-                 .setParameter("work", login_work)
-                 .getSingleResult();
-         em.close();
-         request.setAttribute("income_count", income_count);
-         request.setAttribute("max_goal", max_goal);
+        System.out.println("★ id=" + login_work.getId());
+        System.out.println("★ name=" + login_work.getName());
 
+        long income_count=0;
+        try{
 
-        RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/views/topPage/index.jsp");
+         income_count = (long) em.createNamedQuery("sumMyAllIncome", Long.class)
+                .setParameter("work", login_work)
+                .getSingleResult();
+        }catch(NullPointerException e){
+            e.printStackTrace();
+        }
+
+        Integer max_goal = em.createNamedQuery("getMaxGoal", Integer.class)
+                .setParameter("work", login_work)
+                .getSingleResult();
+        em.close();
+        request.setAttribute("income_count", income_count);
+        request.setAttribute("max_goal", max_goal);
+
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/topPage/index.jsp");
         rd.forward(request, response);
     }
 

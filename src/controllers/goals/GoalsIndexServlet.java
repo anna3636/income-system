@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import models.Goal;
 import models.Work;
 import utils.DBUtil;
+
 /**
  * Servlet implementation class GoalsIndexServlet
  */
@@ -32,18 +33,19 @@ public class GoalsIndexServlet extends HttpServlet {
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        EntityManager em=DBUtil.createEntityManager();
-          Work login_work = (Work)request.getSession().getAttribute("login_work");
-        List<Goal> goals=em.createNamedQuery("getAllMyGoal",Goal.class)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        EntityManager em = DBUtil.createEntityManager();
+        Work login_work = (Work) request.getSession().getAttribute("login_work");
+        List<Goal> goals = em.createNamedQuery("getAllMyGoal", Goal.class)
                 .setParameter("work", login_work)
                 .getResultList();
+
         em.close();
         request.setAttribute("goals", goals);
 
-        RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/views/goals/index.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/goals/index.jsp");
         rd.forward(request, response);
-
 
     }
 

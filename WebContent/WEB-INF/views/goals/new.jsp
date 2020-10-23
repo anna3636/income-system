@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:import url="../layout/app.jsp">
     <c:param name="content">
-        <h2>初めての目標設定</h2>
+        <h2>目標設定</h2>
         <form method="POST" action="<c:url value='/goals/create' />">
             <c:import url="_form.jsp" />
         </form>

@@ -34,22 +34,22 @@ public class WagesIndexServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     EntityManager em = DBUtil.createEntityManager();
-    Work login_work = (Work) request.getSession().getAttribute("login_work");
+    Work loginWork = (Work) request.getSession().getAttribute("loginWork");
 
     List<Wage> wages = em.createNamedQuery("getMyAllWages", Wage.class)
-        .setParameter("work", login_work).getResultList();
-    long income_count = 0;
+        .setParameter("work", loginWork).getResultList();
+    long incomeCount = 0;
     try {
 
-      income_count = (long) em.createNamedQuery("sumMyAllIncome", Long.class)
-          .setParameter("work", login_work).getSingleResult();
+      incomeCount = (long) em.createNamedQuery("sumMyAllIncome", Long.class)
+          .setParameter("work", loginWork).getSingleResult();
     } catch (NullPointerException e) {
       e.printStackTrace();
     }
 
     em.close();
     request.setAttribute("wages", wages);
-    request.setAttribute("income_count", income_count);
+    request.setAttribute("incomeCount", incomeCount);
 
     if (request.getSession().getAttribute("flush") != null) {
       request.setAttribute("flush", request.getSession().getAttribute("flush"));

@@ -32,8 +32,8 @@
         </table>
 
         <div id="pagination">
-            (全${all_number}件)<br />
-            <c:forEach var="i" begin="1" end="${((all_number-1)/15)+1 }" step="1">
+            (全${allNumber}件)<br />
+            <c:forEach var="i" begin="1" end="${((allNumber-1)/15)+1 }" step="1">
                 <c:choose>
                     <c:when test="${i==page}">
                         <c:out value="${i}" />&nbsp;

@@ -7,13 +7,13 @@
         <h2>バイト収入管理トップページ</h2>
 
         <div id="select_button">
-            <c:if test="${sessionScope.login_work !=null}">
+            <c:if test="${sessionScope.loginWork !=null}">
                 <div id="button1">
                     <a href="<c:url value='/wages/index?id=${wage.work.id}' />">収入管理</a>
                 </div>
 
                 <div id="button2">
-                 <c:if test="${sessionScope.login_work.admin_flag == 1 }">
+                 <c:if test="${sessionScope.loginWork.adminFlag == 1 }">
                     <a href="<c:url value='/works/index' />">ユーザー管理者用ページ</a>
                  </c:if>
                 </div>
@@ -27,17 +27,17 @@
 
         <div id="all_income">
             <h2>合計収入</h2>
-            <div>${income_count}円</div>
+            <div>${incomeCount}円</div>
         </div>
 
 
 
-        <div id="max_goal">
+        <div id="maxGoal">
             <h2>一番高い目標まで</h2>
-            <c:if test="${max_goal > income_count }">
-                <div>${max_goal - income_count}円</div>
+            <c:if test="${maxGoal > incomeCount }">
+                <div>${maxGoal - incomeCount}円</div>
             </c:if>
-            <c:if test="${max_goal <= income_count}">
+            <c:if test="${maxGoal <= incomeCount}">
                 <div>目標達成おめでとう！！</div>
             </c:if>
         </div>

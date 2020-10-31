@@ -36,7 +36,7 @@ public class GoalsCreateServlet extends HttpServlet {
     if (_check != null && _check.equals(request.getSession().getId())) {
       EntityManager em = DBUtil.createEntityManager();
       Goal g = new Goal();
-      g.setWork((Work) request.getSession().getAttribute("login_work"));
+      g.setWork((Work) request.getSession().getAttribute("loginWork"));
       g.setPurpose(request.getParameter("purpose"));
 
       g.setTargetAmount(Integer.parseInt(request.getParameter("targetAmount")));

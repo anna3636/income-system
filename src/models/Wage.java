@@ -31,14 +31,14 @@ public class Wage {
   private Integer id;
 
   @ManyToOne
-  @JoinColumn(name = "work_id", nullable = false)
+  @JoinColumn(name = "workId", nullable = false)
   private Work work;
 
-  @Column(name = "work_name", nullable = false)
-  private String work_name;
+  @Column(name = "workName", nullable = false)
+  private String workName;
 
-  @Column(name = "work_date", nullable = false)
-  private Date work_date;
+  @Column(name = "workDate", nullable = false)
+  private Date workDate;
 
   @Column(name = "income", nullable = false)
   private Integer income;
@@ -63,20 +63,20 @@ public class Wage {
     this.work = work;
   }
 
-  public String getWork_name() {
-    return work_name;
+  public String getWorkName() {
+    return workName;
   }
 
-  public void setWork_name(String work_name) {
-    this.work_name = work_name;
+  public void setWorkName(String workName) {
+    this.workName = workName;
   }
 
-  public Date getWork_date() {
-    return work_date;
+  public Date getWorkDate() {
+    return workDate;
   }
 
-  public void setWork_date(Date work_date) {
-    this.work_date = work_date;
+  public void setWorkDate(Date workDate) {
+    this.workDate = workDate;
   }
 
   public Integer getIncome() {

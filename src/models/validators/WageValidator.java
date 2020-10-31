@@ -9,7 +9,7 @@ public class WageValidator {
   public static List<String> validate(Wage a) {
     List<String> errors = new ArrayList<String>();
 
-    String workNameError = _validateWorkName(a.getWork_name());
+    String workNameError = _validateWorkName(a.getWorkName());
     if (!workNameError.equals("")) {
       errors.add(workNameError);
     }
@@ -24,7 +24,7 @@ public class WageValidator {
     }
 
 
-    String workDateError = _validateWorkDate(a.getWork_date());
+    String workDateError = _validateWorkDate(a.getWorkDate());
     if (!workDateError.equals("")) {
       errors.add(workDateError);
     }
@@ -32,8 +32,8 @@ public class WageValidator {
     return errors;
   }
 
-  private static String _validateWorkName(String work_name) {
-    if (work_name == null || work_name.equals("")) {
+  private static String _validateWorkName(String workName) {
+    if (workName == null || workName.equals("")) {
       return "バイト名を入力してください";
     }
     return "";
@@ -54,8 +54,8 @@ public class WageValidator {
     return "";
   }
 
-  private static String _validateWorkDate(Date work_date) {
-    if (work_date == null || work_date.equals("")) {
+  private static String _validateWorkDate(Date workDate) {
+    if (workDate == null || workDate.equals("")) {
       return "日付を入力してください";
     }
     return "";

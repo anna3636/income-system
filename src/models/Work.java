@@ -33,8 +33,8 @@ public class Work {
   @Column(name = "delete_flag", nullable = false)
   private Integer delete_flag;
 
-  @Column(name = "admin_flag", nullable = false)
-  private Integer admin_flag;
+  @Column(name = "adminFlag", nullable = false)
+  private Integer adminFlag;
 
   public Integer getId() {
     return id;
@@ -69,12 +69,12 @@ public class Work {
     this.delete_flag = delete_flag;
   }
 
-  public Integer getAdmin_flag() {
-    return admin_flag;
+  public Integer getAdminFlag() {
+    return adminFlag;
   }
 
-  public void setAdmin_flag(Integer admin_flag) {
-    this.admin_flag = admin_flag;
+  public void setAdminFlag(Integer adminFlag) {
+    this.adminFlag = adminFlag;
   }
 
 }

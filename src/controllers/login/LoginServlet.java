@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
    */
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    Boolean check_result = false;
+    Boolean checkResult = false;
     String name = request.getParameter("name");
     String pass = request.getParameter("password");
     Work w = null;
@@ -64,10 +64,10 @@ public class LoginServlet extends HttpServlet {
       em.close();
 
       if (w != null) {
-        check_result = true;
+        checkResult = true;
       }
     }
-    if (!check_result) {
+    if (!checkResult) {
       // 認証が失敗ならログイン画面に戻る
       request.setAttribute("_check", request.getSession().getId());
       request.setAttribute("miss", true);
@@ -76,7 +76,7 @@ public class LoginServlet extends HttpServlet {
       rd.forward(request, response);
     } else {
       // 認証出来たら、トップページへリダイレクト
-      request.getSession().setAttribute("login_work", w);
+      request.getSession().setAttribute("loginWork", w);
       response.sendRedirect(request.getContextPath() + "/");
     }
 

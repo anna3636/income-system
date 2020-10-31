@@ -37,11 +37,11 @@ public class WagesEditServlet extends HttpServlet {
 
     em.close();
 
-    Work login_work = (Work) request.getSession().getAttribute("login_work");
-    if (a != null && login_work.getId() == a.getWork().getId()) {
+    Work loginWork = (Work) request.getSession().getAttribute("loginWork");
+    if (a != null && loginWork.getId() == a.getWork().getId()) {
       request.setAttribute("wage", a);
       request.setAttribute("_check", request.getSession().getId());
-      request.getSession().setAttribute("wage_id", a.getId());
+      request.getSession().setAttribute("wageId", a.getId());
     }
 
     RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/wages/edit.jsp");

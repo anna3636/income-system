@@ -23,11 +23,11 @@
 <br />
 
 
-<label for="admin_flag">権限</label>
+<label for="adminFlag">権限</label>
 <br />
-<select name="admin_flag">
-    <option value="0" <c:if test="${work.admin_flag == 0}"> selected</c:if>>ユーザー</option>
-    <option value="1" <c:if test="${work.admin_flag == 1}"> selected</c:if>>管理者</option>
+<select name="adminFlag">
+    <option value="0" <c:if test="${work.adminFlag == 0}"> selected</c:if>>ユーザー</option>
+    <option value="1" <c:if test="${work.adminFlag == 1}"> selected</c:if>>管理者</option>
 </select>
 <br />
 <br />

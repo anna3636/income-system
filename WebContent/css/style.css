@@ -28,6 +28,10 @@ h2 {
     font-size: 36px;
     margin-bottom: 15px;
 }
+h2:first-letter{
+    font-size:2em;
+    color:#ff8040;
+}
 
 li {
     margin-top: 10px;
@@ -91,7 +95,7 @@ button {
     padding: 10px 10px 0px 30px;
 }
 
-#max_goal {
+#maxGoal {
     font-size: 30px;
     background: #fab32e;
 }

@@ -41,11 +41,11 @@ public class WorksIndexServlet extends HttpServlet {
     }
     List<Work> works = em.createNamedQuery("getAllWorks", Work.class)
         .setFirstResult(15 * (page - 1)).setMaxResults(15).getResultList();
-    long all_number = (long) em.createNamedQuery("getWorksCount", Long.class).getSingleResult();
+    long allNumber = (long) em.createNamedQuery("getWorksCount", Long.class).getSingleResult();
     em.close();
 
     request.setAttribute("works", works);
-    request.setAttribute("all_number", all_number);
+    request.setAttribute("allNumber", allNumber);
     request.setAttribute("page", page);
     if (request.getSession().getAttribute("flush") != null) {
       request.setAttribute("flush", request.getSession().getAttribute("flush"));

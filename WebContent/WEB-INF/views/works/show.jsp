@@ -16,7 +16,7 @@
                         <tr>
                             <th>権限</th>
                             <td><c:choose>
-                                    <c:when test="${work.admin_flag==1 }">管理者</c:when>
+                                    <c:when test="${work.adminFlag==1 }">管理者</c:when>
                                     <c:otherwise>ユーザー</c:otherwise>
                                 </c:choose></td>
                         </tr>

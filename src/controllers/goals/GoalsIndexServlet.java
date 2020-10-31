@@ -34,9 +34,9 @@ public class GoalsIndexServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     EntityManager em = DBUtil.createEntityManager();
-    Work login_work = (Work) request.getSession().getAttribute("login_work");
+    Work loginWork = (Work) request.getSession().getAttribute("loginWork");
     List<Goal> goals = em.createNamedQuery("getAllMyGoal", Goal.class)
-        .setParameter("work", login_work).getResultList();
+        .setParameter("work", loginWork).getResultList();
 
     em.close();
     request.setAttribute("goals", goals);

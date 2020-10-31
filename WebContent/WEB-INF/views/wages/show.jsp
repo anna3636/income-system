@@ -13,11 +13,11 @@
                     <tbody>
                         <tr>
                             <th>バイト名</th>
-                            <td><c:out value="${wage.work_name}" /></td>
+                            <td><c:out value="${wage.workName}" /></td>
                         </tr>
                         <tr>
                             <th>日付</th>
-                            <td><fmt:formatDate value="${wage.work_date}"
+                            <td><fmt:formatDate value="${wage.workDate}"
                                     pattern="yyyy-MM-dd" /></td>
                         </tr>
                         <tr>
@@ -33,7 +33,7 @@
                     </tbody>
                 </table>
 
-                <c:if test="${sessionScope.login_work.id==wage.work.id }">
+                <c:if test="${sessionScope.loginWork.id==wage.work.id }">
                     <p>
                         <a href="<c:url value="/wages/edit?id=${wage.id}"/>">この収入管理を編集する</a>
                     </p>

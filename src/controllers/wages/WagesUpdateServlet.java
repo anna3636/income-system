@@ -34,10 +34,10 @@ public class WagesUpdateServlet extends HttpServlet {
     String _check = (String) request.getParameter("_check");
     if (_check != null && _check.equals(request.getSession().getId())) {
       EntityManager em = DBUtil.createEntityManager();
-      Wage a = em.find(Wage.class, (Integer) (request.getSession().getAttribute("wage_id")));
+      Wage a = em.find(Wage.class, (Integer) (request.getSession().getAttribute("wageId")));
 
-      a.setWork_name(request.getParameter("work_name"));
-      a.setWork_date(Date.valueOf(request.getParameter("work_date")));
+      a.setWorkName(request.getParameter("workName"));
+      a.setWorkDate(Date.valueOf(request.getParameter("workDate")));
       a.setIncome(Integer.parseInt(request.getParameter("income")));
       a.setContent(request.getParameter("content"));
 
@@ -45,7 +45,7 @@ public class WagesUpdateServlet extends HttpServlet {
       em.getTransaction().commit();
       em.close();
       request.getSession().setAttribute("flush", "更新が完了しました。");
-      request.getSession().removeAttribute("wage_id");
+      request.getSession().removeAttribute("wageId");
       response.sendRedirect(request.getContextPath() + "/wages/index");
     }
   }

@@ -39,13 +39,13 @@ public class WagesCreateServlet extends HttpServlet {
     if (_check != null && _check.equals(request.getSession().getId())) {
       EntityManager em = DBUtil.createEntityManager();
       Wage a = new Wage();
-      a.setWork((Work) request.getSession().getAttribute("login_work"));
+      a.setWork((Work) request.getSession().getAttribute("loginWork"));
 
-      Date work_date = new Date(System.currentTimeMillis());
-      String rd_str = request.getParameter("work_date");
+      Date workDate = new Date(System.currentTimeMillis());
+      String rdStr = request.getParameter("workDate");
 
-      if (rd_str != null && !rd_str.equals("")) {
-        work_date = Date.valueOf(request.getParameter("work_date"));
+      if (rdStr != null && !rdStr.equals("")) {
+        workDate = Date.valueOf(request.getParameter("workDate"));
       }
       Integer income = null;
       String checkIncome = request.getParameter("income");
@@ -53,8 +53,8 @@ public class WagesCreateServlet extends HttpServlet {
         income = Integer.valueOf(request.getParameter("income"));
       }
 
-      a.setWork_date(work_date);
-      a.setWork_name(request.getParameter("work_name"));
+      a.setWorkDate(workDate);
+      a.setWorkName(request.getParameter("workName"));
       a.setIncome(income);
       // a.setIncome(Integer.parseInt(request.getParameter("income")));
       a.setContent(request.getParameter("content"));

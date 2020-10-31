@@ -28,7 +28,7 @@ public class LogoutServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     // TODO Auto-generated method stub
-    request.getSession().removeAttribute("login_work");
+    request.getSession().removeAttribute("loginWork");
     response.sendRedirect(request.getContextPath() + "/login");
   }
 

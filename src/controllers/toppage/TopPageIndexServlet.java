@@ -33,27 +33,27 @@ public class TopPageIndexServlet extends HttpServlet {
       throws ServletException, IOException {
     EntityManager em = DBUtil.createEntityManager();
 
-    Work login_work = (Work) request.getSession().getAttribute("login_work");
+    Work loginWork = (Work) request.getSession().getAttribute("loginWork");
 
     /*
      * System.out.println("★ id=" + login_work.getId()); System.out.println("★ name=" +
      * login_work.getName());
      */
 
-    long income_count = 0;
+    long incomeCount = 0;
     try {
 
-      income_count = (long) em.createNamedQuery("sumMyAllIncome", Long.class)
-          .setParameter("work", login_work).getSingleResult();
+      incomeCount = (long) em.createNamedQuery("sumMyAllIncome", Long.class)
+          .setParameter("work", loginWork).getSingleResult();
     } catch (NullPointerException e) {
       e.printStackTrace();
     }
 
-    Integer max_goal = em.createNamedQuery("getMaxGoal", Integer.class)
-        .setParameter("work", login_work).getSingleResult();
+    Integer maxGoal = em.createNamedQuery("getMaxGoal", Integer.class)
+        .setParameter("work", loginWork).getSingleResult();
     em.close();
-    request.setAttribute("income_count", income_count);
-    request.setAttribute("max_goal", max_goal);
+    request.setAttribute("incomeCount", incomeCount);
+    request.setAttribute("maxGoal", maxGoal);
 
     RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/topPage/index.jsp");
     rd.forward(request, response);

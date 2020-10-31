@@ -13,16 +13,16 @@
 </c:if>
 
 
-<label for="work_name">バイト名</label>
+<label for="workName">バイト名</label>
 <br />
-<input type="text" name="work_name" value="${wage.work_name}" />
+<input type="text" name="workName" value="${wage.workName}" />
 <br />
 <br />
 
-<label for="work_date">日付</label>
+<label for="workDate">日付</label>
 <br />
-<input type="date" name="work_date"
-    value="<fmt:formatDate value='${wage.work_date}' pattern='yyyy-MM-dd' />" />
+<input type="date" name="workDate"
+    value="<fmt:formatDate value='${wage.workDate}' pattern='yyyy-MM-dd' />" />
 <br />
 <br />
 

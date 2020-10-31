@@ -12,7 +12,7 @@
 
         <h2>収入情報一覧</h2>
 
-        <div>(合計 ${income_count} 円)</div>
+        <div>(合計 ${incomeCount} 円)</div>
 
         <table id="wage_list">
             <tbody>
@@ -22,7 +22,7 @@
                 </tr>
                 <c:forEach var="wage" items="${wages}" varStatus="status">
                     <tr class="row${status.count % 2 }">
-                        <td><fmt:formatDate value="${wage.work_date}"
+                        <td><fmt:formatDate value="${wage.workDate}"
                                 pattern="yyyy-MM-dd" /></td>
                         <td><c:out value="${wage.income}" /></td>
                         <td><a href="<c:url value='/wages/show?id=${wage.id}' />">詳細へ</a></td>

@@ -41,7 +41,7 @@ public class WorksCreateServlet extends HttpServlet {
       w.setName(request.getParameter("name"));
       w.setPassword(EncryptUtil.getPasswordEncrypt(request.getParameter("password"),
           (String) this.getServletContext().getAttribute("pepper")));
-      w.setAdmin_flag(Integer.parseInt(request.getParameter("admin_flag")));
+      w.setAdminFlag(Integer.parseInt(request.getParameter("adminFlag")));
       w.setDelete_flag(0);
 
       List<String> errors = WorkValidator.validate(w, true, true);
@@ -61,8 +61,9 @@ public class WorksCreateServlet extends HttpServlet {
         em.close();
         request.getSession().setAttribute("flush", "登録が完了しました。");
 
-
-        response.sendRedirect(request.getContextPath() + "/works/index");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/login/login.jsp");
+        rd.forward(request, response);
+        // response.sendRedirect(request.getContextPath() + "/works/index");
 
       }
     }
